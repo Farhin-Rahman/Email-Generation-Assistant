@@ -1,0 +1,21 @@
+scenario_id,model,intent,tone,fact_recall,tone_accuracy,professional_quality,average
+1,mistral-large-latest,Follow up on a sales meeting with a potential enterprise client,"Professional, warm",0.6,0.9,0.9,0.8
+1,mistral-small-latest,Follow up on a sales meeting with a potential enterprise client,"Professional, warm",1.0,0.9,0.9,0.9333
+2,mistral-large-latest,Apply for a Senior Data Scientist position,"Confident, formal",1.0,0.9,0.9,0.9333
+2,mistral-small-latest,Apply for a Senior Data Scientist position,"Confident, formal",1.0,0.9,0.9,0.9333
+3,mistral-large-latest,Respond to a customer complaint about a delayed shipment,"Empathetic, apologetic",0.8,1.0,0.9,0.9
+3,mistral-small-latest,Respond to a customer complaint about a delayed shipment,"Empathetic, apologetic",1.0,0.9,0.9,0.9333
+4,mistral-large-latest,Send a weekly project status update to stakeholders,"Professional, clear, informative",1.0,0.9,0.9,0.9333
+4,mistral-small-latest,Send a weekly project status update to stakeholders,"Professional, clear, informative",1.0,0.9,0.9,0.9333
+5,mistral-large-latest,Request a meeting to get budget approval for software licenses,"Direct, professional, concise",1.0,0.9,0.9,0.9333
+5,mistral-small-latest,Request a meeting to get budget approval for software licenses,"Direct, professional, concise",0.75,0.9,0.9,0.85
+6,mistral-large-latest,Announce a new product launch to existing customers,"Enthusiastic, exciting, friendly",1.0,1.0,0.9,0.9667
+6,mistral-small-latest,Announce a new product launch to existing customers,"Enthusiastic, exciting, friendly",1.0,1.0,0.9,0.9667
+7,mistral-large-latest,Send a first payment reminder for an overdue invoice,"Firm but polite, professional",1.0,0.9,0.9,0.9333
+7,mistral-small-latest,Send a first payment reminder for an overdue invoice,"Firm but polite, professional",1.0,0.8,0.9,0.9
+8,mistral-large-latest,Send a thank you email after a job interview,"Warm, enthusiastic, professional",0.6,1.0,0.9,0.8333
+8,mistral-small-latest,Send a thank you email after a job interview,"Warm, enthusiastic, professional",0.6,0.9,0.9,0.8
+9,mistral-large-latest,Propose a co-marketing partnership to a complementary business,"Persuasive, professional, collaborative",1.0,0.9,0.9,0.9333
+9,mistral-small-latest,Propose a co-marketing partnership to a complementary business,"Persuasive, professional, collaborative",1.0,0.9,0.9,0.9333
+10,mistral-large-latest,Apologize to enterprise clients for an unexpected platform outage,"Apologetic, accountable, transparent",1.0,0.9,0.9,0.9333
+10,mistral-small-latest,Apologize to enterprise clients for an unexpected platform outage,"Apologetic, accountable, transparent",1.0,1.0,0.9,0.9667

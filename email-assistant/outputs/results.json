@@ -1,0 +1,259 @@
+{
+  "metadata": {
+    "model_a": "mistral-large-latest",
+    "model_b": "mistral-small-latest",
+    "prompting_strategy": "Advanced: Role-Playing + Few-Shot + Chain-of-Thought",
+    "judge_model": "mistral-small-latest",
+    "metrics": {
+      "fact_recall": "Automated keyword matching. For each fact, content words are extracted and checked against the email text. Score = fraction of facts where >=50% of their content words appear in the email. Range: 0.0\u20131.0.",
+      "tone_accuracy": "LLM-as-Judge. The judge model rates (1\u201310) how well the email matches the requested tone, normalised to 0.0\u20131.0.",
+      "professional_quality": "LLM-as-Judge. The judge model rates (1\u201310) overall email craft: grammar, structure, subject line, length, and call-to-action, normalised to 0.0\u20131.0."
+    }
+  },
+  "results": [
+    {
+      "scenario_id": 1,
+      "intent": "Follow up on a sales meeting with a potential enterprise client",
+      "tone": "Professional, warm",
+      "model_a": {
+        "generated_email": "**Subject:** Next Steps After Our June 15 Meeting \u2013 Demo on June 28\n\n**Dear Sarah,**\n\nIt was a pleasure meeting with you and the Acme Corp team last week to discuss your CRM upgrade. I left our conversation even more confident that we can deliver a solution tailored to your operational needs\u2014one that streamlines workflows while aligning with your long-term goals.\n\nAs we discussed, I\u2019ve scheduled a demo for **June 28 at 10:00 AM** to walk you through how our platform addresses the specific challenges you shared. This will also be a great opportunity to explore any additional questions ahead of your Q3 budget cycle.\n\nPlease let me know if there\u2019s anything else you\u2019d like me to prepare in advance. Otherwise, I\u2019ll look forward to connecting then\u2014and to continuing the conversation.\n\n**Best regards,**\n[Your Full Name]\n[Your Position]\n[Your Contact Information]\n[Company Name]",
+        "scores": {
+          "fact_recall": 0.6,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.8
+        }
+      },
+      "model_b": {
+        "generated_email": "**Subject:** Next Steps: CRM Upgrade Demo on June 28\n\n**Dear Sarah,**\n\nIt was a pleasure meeting with you and the Acme Corp team last week to discuss upgrading your legacy CRM system. The conversation confirmed how well our solution aligns with your goals, and I\u2019m excited about the potential to streamline your operations.\n\nTo move forward, I\u2019ve scheduled a demo for **June 28 at 10:00 AM EST**. This will give you a closer look at how our platform can address your specific needs\u2014whether it\u2019s improving data visibility, automating workflows, or enhancing user adoption.\n\nGiven that your budget cycle closes at the end of Q3, this timing ensures we can align our proposal with your fiscal planning. Please let me know if you\u2019d like to adjust the demo agenda or invite additional stakeholders.\n\nLooking forward to your confirmation and to helping Acme Corp modernize its CRM infrastructure.\n\n**Best regards,**\n[Your Full Name]\n[Your Job Title]\n[Your Company]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      }
+    },
+    {
+      "scenario_id": 2,
+      "intent": "Apply for a Senior Data Scientist position",
+      "tone": "Confident, formal",
+      "model_a": {
+        "generated_email": "**Subject:** Application for Senior Data Scientist \u2013 Position ID: DS-2024-089\n\n**Dear Hiring Committee,**\n\nI\u2019m writing to express my strong interest in the Senior Data Scientist role (Position ID: DS-2024-089). With five years of specialized experience in machine learning and AI within the fintech sector\u2014including the development of a fraud detection model that delivered $2.1M in annual savings\u2014I\u2019m eager to bring my expertise in Python, PyTorch, and AWS SageMaker to your team.\n\nMy background aligns closely with the technical and strategic demands of this role, and I\u2019m confident in my ability to drive impactful data solutions from day one. I\u2019m available to start on July 14 and would welcome the opportunity to discuss how my skills can contribute to your objectives.\n\nPlease find my resume attached for your review. I\u2019d be happy to provide additional details or schedule an interview at your convenience.\n\n**Best regards,**\n[Your Full Name]\n[Your Contact Information]\n[LinkedIn Profile or Portfolio, if applicable]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      },
+      "model_b": {
+        "generated_email": "**Subject:** Application for Senior Data Scientist Position (DS-2024-089)\n\n**Dear Hiring Committee,**\n\nI\u2019m excited to apply for the Senior Data Scientist position (ID: DS-2024-089) at [Company Name]. With five years of hands-on experience in machine learning and AI\u2014primarily in fintech\u2014I\u2019ve developed solutions that directly impact revenue protection and operational efficiency.\n\nIn my most recent role at [Current/Past Company], I designed and deployed a fraud detection model that reduced fraudulent transactions by 40% and generated **$2.1M in annual savings**. My expertise spans Python, PyTorch, and AWS SageMaker, and I thrive in environments where data-driven insights drive measurable business outcomes.\n\nI\u2019m available to start on **July 14** and would welcome the opportunity to discuss how my skills align with your team\u2019s goals. Please find my resume attached for your review. I\u2019d be happy to provide additional details or schedule an interview at your convenience.\n\nThank you for your time and consideration\u2014I look forward to the possibility of contributing to [Company Name].\n\n**Best regards,**\n[Your Full Name]\n[Your Contact Information]\n[LinkedIn Profile/Portfolio, if applicable]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      }
+    },
+    {
+      "scenario_id": 3,
+      "intent": "Respond to a customer complaint about a delayed shipment",
+      "tone": "Empathetic, apologetic",
+      "model_a": {
+        "generated_email": "**Subject:** Our Apologies for Your Delayed Order #45892\n\n**Dear Mr. Park,**\n\nI was truly sorry to hear about the delay with your order (#45892), and I want to personally apologize for the inconvenience this has caused. We understand how frustrating this must be, and we\u2019re committed to making it right.\n\nThe delay was due to unexpected flooding at our primary warehouse, which disrupted operations more than we initially anticipated. While we\u2019ve worked hard to restore full capacity, your shipment is now estimated to arrive by **June 30**. We\u2019ve prioritized your order to ensure it reaches you as quickly as possible.\n\nAs a small token of our appreciation for your patience, we\u2019d like to offer you a **20% discount on your next order**\u2014we\u2019ll send the code once your current shipment is on its way. If there\u2019s anything else we can do in the meantime, please don\u2019t hesitate to let me know.\n\nThank you for your understanding, and for giving us the opportunity to serve you. We truly value your business and will do everything we can to prevent this from happening again.\n\n**With sincere apologies,**\n[Your Full Name]\n[Your Job Title]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 0.8,
+          "tone_accuracy": 1.0,
+          "professional_quality": 0.9,
+          "average": 0.9
+        }
+      },
+      "model_b": {
+        "generated_email": "**Subject:** Our Apologies for Your Delayed Shipment \u2013 Next Steps\n\n**Dear Mr. Park,**\n\nI sincerely apologize for the delay in your order (#45892) and the inconvenience this has caused. We understand how frustrating unexpected delays can be, and I want to assure you that we\u2019re treating this as a top priority.\n\nThe shipment was delayed due to unforeseen flooding in our warehouse, which has since been resolved. Your new estimated delivery date is **June 30**, and we\u2019ll provide tracking updates as soon as your package ships.\n\nAs a token of our apology, we\u2019d like to offer you a **20% discount on your next order**\u2014just use code **RECOVERY20** at checkout. We truly value your partnership and appreciate your patience as we work to make this right.\n\nPlease don\u2019t hesitate to reach out if you\u2019d like to discuss further. I\u2019m happy to assist.\n\n**Best regards,**\n[Your Full Name]\n[Your Job Title]\n[Your Contact Information]\n[Company Name]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      }
+    },
+    {
+      "scenario_id": 4,
+      "intent": "Send a weekly project status update to stakeholders",
+      "tone": "Professional, clear, informative",
+      "model_a": {
+        "generated_email": "**Subject:** Weekly Update: GlobalBank Website Redesign \u2013 60% Complete\n\n**Dear Stakeholders,**\n\nI\u2019m writing to share this week\u2019s progress on the GlobalBank website redesign. We\u2019re now 60% complete, with key milestones achieved and a clear path forward to our August 1 launch target.\n\nThe homepage, About, and Services pages are now fully developed and ready for final review. Our current focus is on the Blog section and Contact form, both of which are on track for completion by next week.\n\nOne item requires your attention: we\u2019re awaiting final copy from the marketing team to finalize the remaining pages. To keep the project on schedule, we\u2019ll need this delivered by **July 5**. Please let me know if there are any concerns or dependencies on your end.\n\nAs always, I\u2019m happy to discuss any questions or adjustments. Thank you for your continued collaboration\u2014we\u2019re making great progress toward a successful launch.\n\n**Best regards,**\n[Your Name]\n[Your Position]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      },
+      "model_b": {
+        "generated_email": "**Subject:** GlobalBank Website Redesign \u2013 Weekly Status Update (Week of June 24)\n\n**Dear Stakeholders,**\n\nI\u2019m writing to share the latest progress on the GlobalBank website redesign, which is now 60% complete. This week, we\u2019ve finalized the Homepage, About, and Services pages, bringing us closer to the August 1 launch target.\n\nCurrently, our team is focused on developing the Blog section and Contact form, both of which are on track for completion by mid-July. To keep momentum, we\u2019ll need the final copy from the marketing team by **July 5**\u2014this will ensure we stay aligned with the project timeline and avoid any delays.\n\nI\u2019ll continue to provide weekly updates as we move forward. If you have any questions or feedback, please don\u2019t hesitate to reach out.\n\n**Best regards,**\n[Your Name]\n[Your Position]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      }
+    },
+    {
+      "scenario_id": 5,
+      "intent": "Request a meeting to get budget approval for software licenses",
+      "tone": "Direct, professional, concise",
+      "model_a": {
+        "generated_email": "**Subject:** Budget Approval Needed \u2013 Software Licenses by June 25\n\n**Dear [Recipient's Name],**\n\nI\u2019d like to schedule a quick 30-minute meeting to secure your approval on three pending software licenses: Salesforce, Figma Enterprise, and DataDog. The total budget request is $48,000, and we need sign-off by **June 25** to meet vendor deadlines.\n\nWould **June 22 or 23 at 2:00 PM** work for you? If neither slot fits your schedule, I\u2019m happy to adjust. Let me know your preference, and I\u2019ll send a calendar invite right away.\n\nThank you for your time\u2014I\u2019m happy to provide any additional details in advance.\n\n**Best regards,**\n[Your Name]\n[Your Position]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      },
+      "model_b": {
+        "generated_email": "Subject: Budget Approval Meeting \u2013 Software Licenses Due June 25\n\nDear [Finance Team/Recipient's Name],\n\nI\u2019m writing to request a 30-minute meeting to secure budget approval for three pending software licenses: Salesforce, Figma Enterprise, and DataDog. The total request is $48,000, and we\u2019re committed to finalizing vendor agreements by **June 25**.\n\nTo accommodate your schedule, I\u2019m available on **June 22 or 23 at 2:00 PM**. Please let me know which time works best, or suggest an alternative if needed.\n\nI\u2019ve attached the detailed cost breakdown for your review. Let me know if you\u2019d like any additional information ahead of our discussion.\n\nThank you for your time\u2014I appreciate your prompt attention to this.\n\nBest regards,\n[Your Full Name]\n[Your Job Title]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 0.75,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.85
+        }
+      }
+    },
+    {
+      "scenario_id": 6,
+      "intent": "Announce a new product launch to existing customers",
+      "tone": "Enthusiastic, exciting, friendly",
+      "model_a": {
+        "generated_email": "**Subject:** \ud83d\ude80 Introducing DataPulse Pro \u2013 Your Analytics, Supercharged\n\n**Dear [First Name],**\n\nWe\u2019ve been listening to you\u2014and today, we\u2019re thrilled to unveil *DataPulse Pro*, the next evolution of your analytics experience. Launching July 1, this isn\u2019t just an upgrade; it\u2019s a complete reimagining of how you harness your data.\n\nHere\u2019s what\u2019s new:\n- **AI-powered analytics dashboard** that surfaces insights before you even ask\n- **Real-time alerts** to keep you ahead of trends and anomalies\n- **Team collaboration workspace** to turn data into decisions\u2014together\n\nAs a valued customer, you\u2019re getting first access with a **40% early-bird discount**\u2014but only until June 28. Secure your spot now at **[datapulse.io/pro](datapulse.io/pro)** and be among the first to experience the future of analytics.\n\nWe can\u2019t wait to hear what you think. Questions? Just hit reply\u2014we\u2019re here to help.\n\nTo your success,\n**[Your Name]**\n[Your Position]\nDataPulse Team\n\n*P.S. The countdown is on! This discount disappears in [X] days\u2014don\u2019t miss out.*",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 1.0,
+          "professional_quality": 0.9,
+          "average": 0.9667
+        }
+      },
+      "model_b": {
+        "generated_email": "**Subject:** \ud83d\ude80 Introducing DataPulse Pro \u2013 Your New AI-Powered Analytics Powerhouse!\n\n**Dear [Customer's Name],**\n\nWe\u2019re thrilled to share some *big news*\u2014DataPulse Pro, our most advanced analytics platform yet, is launching on **July 1**, and we couldn\u2019t wait to give you a sneak peek!\n\nThis isn\u2019t just another upgrade\u2014it\u2019s a complete transformation. Imagine an **AI-powered analytics dashboard** that predicts trends before they happen, **real-time alerts** to keep you ahead of critical changes, and a **team collaboration workspace** that makes insights sharable in seconds. DataPulse Pro is designed to turn raw data into actionable decisions\u2014faster and smarter than ever before.\n\n**And because you\u2019re an existing customer, we\u2019re offering an exclusive 40% early-bird discount**\u2014but hurry, this deal expires on **June 28**!\n\n\ud83d\udc49 **[Claim Your Spot Now \u2192 datapulse.io/pro](datapulse.io/pro)**\n\nWe can\u2019t wait for you to experience the future of analytics. If you have any questions, reply to this email\u2014we\u2019d love to hear your thoughts!\n\nCheers,\n[Your Name]\n[Your Position]\nDataPulse Team\n\n*P.S. Mark your calendar\u2014July 1 is just around the corner!*",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 1.0,
+          "professional_quality": 0.9,
+          "average": 0.9667
+        }
+      }
+    },
+    {
+      "scenario_id": 7,
+      "intent": "Send a first payment reminder for an overdue invoice",
+      "tone": "Firm but polite, professional",
+      "model_a": {
+        "generated_email": "**Subject:** Friendly Reminder: Invoice INV-2024-089 \u2013 Payment Overdue\n\nDear [Client's Name],\n\nI hope this email finds you well. I\u2019m reaching out regarding Invoice **INV-2024-089** in the amount of **$4,750.00**, which was due on **June 1**. As of today, the invoice is now **20 days overdue**, and we kindly request your prompt attention to settle the balance.\n\nTo make payment as convenient as possible, you can process the amount via **bank transfer** or through our secure online portal at **[payments.ourcompany.com](https://payments.ourcompany.com)**. If you\u2019ve already sent payment, please disregard this reminder\u2014we\u2019d appreciate confirmation so we can reconcile our records.\n\nIf there are any questions or concerns about this invoice, don\u2019t hesitate to let me know. Otherwise, we\u2019d be grateful for your payment by **[insert reasonable deadline, e.g., June 25]** to avoid any potential service interruptions.\n\nThank you for your immediate attention to this matter. I\u2019m happy to assist if needed.\n\nBest regards,\n[Your Full Name]\n[Your Job Title]\n[Your Company Name]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      },
+      "model_b": {
+        "generated_email": "**Subject:** Friendly Reminder: Invoice INV-2024-089 Payment Due\n\n**Dear [Client's Name],**\n\nI hope this email finds you well. I\u2019m reaching out regarding invoice **INV-2024-089** for **$4,750.00**, which was due on **June 1**. As of today, the payment is now **20 days overdue**, and I want to ensure this is resolved promptly to avoid any disruption to your account.\n\nFor your convenience, payment can be made via **bank transfer** or through our secure **online portal at payments.ourcompany.com**. If you\u2019ve already processed the payment, please disregard this reminder\u2014we appreciate your prompt attention either way.\n\nIf there\u2019s anything preventing you from completing this payment, or if you need assistance, I\u2019d be happy to help. Just let me know how we can resolve this together.\n\n**Please process the payment at your earliest convenience.** If you\u2019ve already sent it, thank you\u2014we\u2019ll confirm receipt shortly.\n\nThank you for your prompt attention to this matter.\n\n**Best regards,**\n[Your Full Name]\n[Your Job Title]\n[Your Company Name]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.8,
+          "professional_quality": 0.9,
+          "average": 0.9
+        }
+      }
+    },
+    {
+      "scenario_id": 8,
+      "intent": "Send a thank you email after a job interview",
+      "tone": "Warm, enthusiastic, professional",
+      "model_a": {
+        "generated_email": "**Subject:** Thank You for the Opportunity \u2013 Senior Product Manager Role\n\n**Dear Jennifer,**\n\nI wanted to take a moment to thank you for the engaging conversation today about the Senior Product Manager role. It was a pleasure discussing the 2025 mobile app roadmap and exploring how we might shape its evolution\u2014especially the potential of the *progressive onboarding* concept we touched on.\n\nThe opportunity to contribute to such a forward-thinking team is truly exciting, and I left our interview even more energized about the possibility of joining your group. Please extend my gratitude to everyone involved in the process.\n\nI\u2019m happy to provide any additional details if helpful, and I look forward to next steps. Thanks again for your time and insights\u2014I really enjoyed our exchange.\n\n**Best regards,**\n[Your Name]",
+        "scores": {
+          "fact_recall": 0.6,
+          "tone_accuracy": 1.0,
+          "professional_quality": 0.9,
+          "average": 0.8333
+        }
+      },
+      "model_b": {
+        "generated_email": "Subject: Thank You for Today\u2019s Conversation \u2013 Senior Product Manager Role\n\nDear Jennifer,\n\nI wanted to take a moment to sincerely thank you for the opportunity to interview for the Senior Product Manager position today. It was a pleasure meeting you and learning more about the vision for the 2025 mobile app roadmap.\n\nOur discussion about user experience and growth strategies was especially energizing, and I was thrilled to share the \u2018progressive onboarding\u2019 concept\u2014an idea I\u2019m confident could drive meaningful engagement and retention. I left our conversation feeling even more excited about the opportunity to contribute to your team.\n\nPlease don\u2019t hesitate to reach out if you need any additional information as you move forward in the process. I truly appreciate your time and consideration.\n\nWarm regards,\n[Your Name]",
+        "scores": {
+          "fact_recall": 0.6,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.8
+        }
+      }
+    },
+    {
+      "scenario_id": 9,
+      "intent": "Propose a co-marketing partnership to a complementary business",
+      "tone": "Persuasive, professional, collaborative",
+      "model_a": {
+        "generated_email": "**Subject:** Exciting Co-Marketing Opportunity: Sustainable Enterprise Tech Webinar Series\n\n**Dear GreenTech Solutions Team,**\n\nI hope this note finds you well. I\u2019ve been following your work in sustainable enterprise technology with great interest, and I believe there\u2019s a compelling opportunity for our two companies to collaborate in a way that benefits both our audiences\u2014and our growth.\n\nGiven the strong alignment between our mid-market B2B client bases, I\u2019d love to propose a joint 3-part webinar series focused on sustainable enterprise technology. This initiative would not only amplify our shared expertise but also provide tangible value to our audiences through actionable insights and best practices. To ensure fairness and mutual benefit, we\u2019d structure it as a 90-day pilot program starting in August, with a 50/50 lead-sharing model.\n\nI\u2019d welcome the chance to discuss this further and explore how we can tailor the series to align with both our goals. Are you available for a quick call next week to brainstorm? I\u2019m happy to work around your schedule.\n\nLooking forward to the possibility of working together.\n\n**Best regards,**\n[Your Name]\n[Your Position]\n[Your Company]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      },
+      "model_b": {
+        "generated_email": "Subject: Partnering on Sustainable Tech: A Joint Webinar Series for Mid-Market Leaders\n\nDear GreenTech Solutions Team,\n\nI\u2019ve long admired the work GreenTech Solutions is doing to help mid-market businesses adopt sustainable enterprise technology\u2014and I believe our audiences would benefit immensely from a shared conversation. That\u2019s why I\u2019m reaching out to propose a co-marketing partnership centered on a joint 3-part webinar series focused on the future of sustainable tech in business.\n\nGiven the significant overlap in our target markets\u2014both of us serve mid-market B2B clients with a shared emphasis on innovation and sustainability\u2014this collaboration presents a natural opportunity to amplify our reach and deliver even greater value to our audiences. We\u2019re envisioning a 90-day pilot program kicking off in August, designed to test the waters and refine the format based on real engagement.\n\nHere\u2019s how we propose it could work:\n- **Content & Format:** Each of us would co-host one session, with the third featuring a joint panel discussion featuring thought leaders from both organizations.\n- **Lead Sharing:** We\u2019d split all generated leads 50/50, ensuring both teams see tangible ROI.\n- **Promotion:** We\u2019d leverage our respective channels\u2014email, social, and digital ads\u2014to maximize attendance and engagement.\n\nThis pilot is intentionally structured to be low-risk and high-reward, giving us both the flexibility to assess what works and scale accordingly. I\u2019d love to set up a quick call to discuss this further and explore how we can tailor the series to your goals. Are you available next week for a 15-minute conversation?\n\nLooking forward to the possibility of working together to advance sustainable enterprise technology.\n\nBest regards,\n[Your Name]\n[Your Position]\n[Your Company]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      }
+    },
+    {
+      "scenario_id": 10,
+      "intent": "Apologize to enterprise clients for an unexpected platform outage",
+      "tone": "Apologetic, accountable, transparent",
+      "model_a": {
+        "generated_email": "**Subject:** Our Sincere Apologies for Yesterday\u2019s Service Disruption\n\nDear [Client's Company Name] Team,\n\nI\u2019m writing to personally apologize for the unexpected platform outage you experienced early yesterday morning. We understand the critical role our services play in your operations, and we deeply regret any disruption this may have caused your team.\n\nThe outage, which lasted from 2:00 AM to 6:00 AM EST on June 18, was the result of a failed database migration script. While all services were fully restored by 6:00 AM, we recognize the impact even a brief interruption can have. To prevent this from happening again, we\u2019ve implemented automated rollback protocols and enhanced monitoring to catch potential issues earlier.\n\nAs a gesture of our commitment to your partnership, we\u2019ve applied a one-month service credit to your account. This is automatic\u2014no action is required on your end. If you\u2019d like to discuss this further or have any questions, I\u2019m happy to schedule a call at your convenience.\n\nThank you for your trust in us. We\u2019re taking this very seriously and will continue working to ensure the reliability you expect from our platform.\n\nWith sincere apologies,\n[Your Full Name]\n[Your Job Title]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 0.9,
+          "professional_quality": 0.9,
+          "average": 0.9333
+        }
+      },
+      "model_b": {
+        "generated_email": "**Subject:** Our Sincere Apologies for Yesterday\u2019s Platform Outage\n\n**Dear Valued Enterprise Clients,**\n\nWe owe you a sincere apology. Yesterday\u2019s unplanned platform outage\u2014lasting four hours from 2:00 AM to 6:00 AM EST on June 18\u2014fell far short of the reliability you expect from us, and for that, we are truly sorry.\n\nThe root cause was a failed database migration script, which disrupted service during a critical maintenance window. Despite our best efforts, we underestimated the complexity of the migration, and I take full accountability for the impact this had on your operations. We acted immediately upon detection, and by 6:00 AM EST, all services were fully restored.\n\nWe\u2019ve already taken concrete steps to prevent a recurrence: we\u2019ve implemented an automated rollback mechanism to reverse failed migrations instantly and have enhanced our monitoring systems to detect anomalies in real time. These measures are now live across our platform.\n\nAs a token of our commitment to making this right, we\u2019ve applied one month of service credit to all affected enterprise accounts. You\u2019ll see this reflected in your next invoice.\n\nWe deeply value your trust and understand that trust is earned through consistent performance. We are committed to rebuilding it through transparency, improved processes, and unwavering reliability moving forward.\n\nIf you\u2019d like to discuss this further or have any concerns, please don\u2019t hesitate to reach out directly. We\u2019re here to listen and support you.\n\nWith sincere regret and renewed dedication,\n[Your Full Name]\n[Your Job Title]\n[Your Company Name]\n[Your Contact Information]",
+        "scores": {
+          "fact_recall": 1.0,
+          "tone_accuracy": 1.0,
+          "professional_quality": 0.9,
+          "average": 0.9667
+        }
+      }
+    }
+  ],
+  "summary": {
+    "model_a": {
+      "avg_fact_recall": 0.9,
+      "avg_tone_accuracy": 0.93,
+      "avg_professional_quality": 0.9,
+      "overall_average": 0.91
+    },
+    "model_b": {
+      "avg_fact_recall": 0.935,
+      "avg_tone_accuracy": 0.91,
+      "avg_professional_quality": 0.9,
+      "overall_average": 0.915
+    }
+  }
+}
